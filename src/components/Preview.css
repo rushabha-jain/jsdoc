@@ -1,0 +1,22 @@
+.preview {
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.react-draggable-transparent-selection .preview:after {
+  position: absolute;
+  content: "";
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.preview-error {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: red;
+}
