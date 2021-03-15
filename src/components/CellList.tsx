@@ -9,7 +9,10 @@ const CellList: React.FC = () => {
   );
   return (
     <div>
-      <AddCell insertCellAfterId={null} />
+      <AddCell
+        insertCellAfterId={null}
+        forceVisible={cellListItems.length === 0}
+      />
       {cellListItems.map(cell => (
         <div>
           <CellListItem cell={cell} />

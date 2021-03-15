@@ -1,0 +1,42 @@
+.add-cell-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.add-cell-wrapper:hover {
+  opacity: 1;
+}
+
+.add-cell-wrapper.force-visible {
+  opacity: 1;
+}
+
+.add-cell-wrapper .divider {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  border-top: 1px solid gray;
+  left: 5%;
+  right: 5%;
+  z-index: -1;
+}
+
+.add-cell-wrapper .button {
+  margin: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-cell-wrapper .icon {
+  margin-right: 10px;
+}
+
+.add-cell-wrapper button span {
+  font-size: 14px;
+}
