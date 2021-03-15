@@ -3,29 +3,35 @@ import bundler from "../bundler";
 import CodeEditor from "./CodeEditor";
 import Preview from "./Preview";
 import Resizable from "./Resizable";
+import { Cell, updateCell } from "../state";
+import { useDispatch } from "react-redux";
 
-const CodeCell: React.FC = () => {
-  const [input, setInput] = useState("");
+interface CodeCellProps {
+  cell: Cell;
+}
+
+const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
+  const dispatch = useDispatch();
   const [code, setCode] = useState("");
   const [err, setErr] = useState("");
   useEffect(() => {
     const timeout = setTimeout(async () => {
-      const output = await bundler(input);
+      const output = await bundler(cell.content);
       setCode(output.code);
       setErr(output.error);
     }, 1000);
     return () => {
       clearTimeout(timeout);
     };
-  }, [input]);
+  }, [cell.content]);
 
   return (
     <Resizable direction="vertical">
       <div className="code-cell">
         <Resizable direction="horizontal">
           <CodeEditor
-            code={input}
-            onChange={(value: string) => setInput(value)}
+            code={cell.content}
+            onChange={(value: string) => dispatch(updateCell(cell.id, value))}
           />
         </Resizable>
         <Preview code={code} err={err} />

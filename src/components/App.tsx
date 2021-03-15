@@ -1,11 +1,10 @@
 import React from "react";
-import CodeCell from "./CodeCell";
-import TextEditor from "./TextEditor";
+import CellList from "./CellList";
 
 const App: React.FC = () => {
   return (
     <div>
-      <TextEditor />
+      <CellList />
     </div>
   );
 };

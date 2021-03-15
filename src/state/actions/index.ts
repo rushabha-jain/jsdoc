@@ -1,5 +1,5 @@
 import { ActionType } from "../action-types";
-import { Cell, CellType } from "../cell";
+import { CellType } from "../cell";
 
 export type Direction = "up" | "down";
 
@@ -24,8 +24,8 @@ export interface MoveCellAction {
   };
 }
 
-export interface InsertCellBeforeAction {
-  type: ActionType.INSET_CELL_BEFORE;
+export interface InsertCellAfterAction {
+  type: ActionType.INSET_CELL_AFTER;
   payload: {
     id: string | null;
     type: CellType;
@@ -36,4 +36,4 @@ export type Action =
   | UpdateCellAction
   | DeleteCellAction
   | MoveCellAction
-  | InsertCellBeforeAction;
+  | InsertCellAfterAction;

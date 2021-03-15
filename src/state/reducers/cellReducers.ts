@@ -89,7 +89,7 @@ export default function cellReducers(
           moveCellPayload.direction
         )
       };
-    case ActionType.INSET_CELL_BEFORE:
+    case ActionType.INSET_CELL_AFTER:
       const insertCellBeforePayload = action.payload;
       const newCell: Cell = {
         id: randomId(),
@@ -103,7 +103,7 @@ export default function cellReducers(
             ...state.data,
             [newCell.id]: newCell
           },
-          order: [...state.order, newCell.id]
+          order: [newCell.id, ...state.order]
         };
       }
       // Get the currentIndex of cell before which new cell will be added!
@@ -117,9 +117,9 @@ export default function cellReducers(
           [newCell.id]: newCell
         },
         order: [
-          ...state.order.slice(0, foundIndex),
+          ...state.order.slice(0, foundIndex + 1),
           newCell.id,
-          ...state.order.slice(foundIndex)
+          ...state.order.slice(foundIndex + 1)
         ]
       };
     default:
