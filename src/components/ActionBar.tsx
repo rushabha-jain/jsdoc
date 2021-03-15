@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { moveCell, deleteCell } from "../state";
 import { FaArrowUp, FaArrowDown, FaTimes } from "react-icons/fa";
+import "./ActionBar.css";
 
 interface ActionBarInterface {
   cellId: string;
@@ -11,7 +12,7 @@ const ActionBar: React.FC<ActionBarInterface> = ({ cellId }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="action-bar">
       <button
         className="button is-primary"
         onClick={() => dispatch(moveCell(cellId, "up"))}
